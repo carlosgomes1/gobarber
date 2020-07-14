@@ -1,20 +1,22 @@
-import User from '../models/User'
-import File from '../models/File'
+import User from '../models/User';
+import File from '../models/File';
 
 class ProviderController {
-    async index( req, res ) {
-        const provider = await User.findAll({
-            where: { provider: true },
-            attributes: [ 'id', 'name', 'email', 'avatar_id' ],
-            include: [{
-                model: File,
-                as: 'avatar',
-                attributes: ['name', 'path', 'url']
-            }]
-        })
+  async index(req, res) {
+    const provider = await User.findAll({
+      where: { provider: true },
+      attributes: ['id', 'name', 'email', 'avatar_id'],
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['name', 'path', 'url'],
+        },
+      ],
+    });
 
-        return res.json(provider)
-    }
+    return res.json(provider);
+  }
 }
 
-export default new ProviderController()
+export default new ProviderController();
