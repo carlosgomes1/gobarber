@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import './config/ReactotronConfig';
 
@@ -10,10 +10,10 @@ import GlobalStyle from './styles/global';
 
 function App() {
     return (
-        <Router history={history}>
+        <BrowserRouter history={history}>
             <Routes />
             <GlobalStyle />
-        </Router>
+        </BrowserRouter>
     );
 }
 
